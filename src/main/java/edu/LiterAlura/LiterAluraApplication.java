@@ -1,5 +1,6 @@
 package edu.LiterAlura;
 
+import edu.LiterAlura.controllers.PrincipalController;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
