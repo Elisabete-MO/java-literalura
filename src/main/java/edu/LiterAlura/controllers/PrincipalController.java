@@ -65,8 +65,9 @@ public class PrincipalController {
     public void getDataByBookId() {
         System.out.println("Digite o ID do livro:");
         String id = scanner.nextLine();
-        Book book = booksService.getMediaDataById(id);
-        System.out.println(book);
+        Books books = booksService.getMediaDataById(id);
+        // save
+        showMenu();
     }
 
     public void showBooks(Books books, String nameOrTitle) {

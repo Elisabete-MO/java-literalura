@@ -24,12 +24,12 @@ public class BooksService {
         }
     }
 
-    public Book getMediaDataById(String Id) {
+    public Books getMediaDataById(String Id) {
         try {
             String endpoint =
                     ADDRESS + "ids=" + Id;
             String json = booksApiIntegration.getApiBooksData(endpoint);
-            return convertService.fromJson(json, Book.class);
+            return convertService.fromJson(json, Books.class);
         } catch (Exception e) {
             throw new RuntimeException("Media not found" + e.getMessage());
         }

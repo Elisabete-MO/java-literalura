@@ -2,6 +2,7 @@ package edu.LiterAlura.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.LiterAlura.models.entities.BookEntity;
 import edu.LiterAlura.services.interfaces.IConvertData;
 
 public class ConvertDataService implements IConvertData {
@@ -13,5 +14,14 @@ public class ConvertDataService implements IConvertData {
             return mapper.readValue(json, tClass);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
-        }    }
+        }
+    }
+
+    public BookEntity toBookEntity(String json) {
+        try {
+            return mapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

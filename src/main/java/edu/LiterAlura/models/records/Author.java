@@ -16,7 +16,7 @@ public record Author(
 
     @Override
     public String toString() {
-        return "Nome: " + name +
+        return "Autor: " + name +
                 ", Ano de Nascimento: " + (birthYear == 0 ? "Data não " +
                 "informada": birthYear)+
                 ", Ano de Morte: " + (deathYear == 0 ?
