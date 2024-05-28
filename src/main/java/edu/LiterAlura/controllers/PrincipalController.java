@@ -40,7 +40,7 @@ public class PrincipalController {
                 getDataByBookId();
                 break;
             case "3":
-                System.out.println("And I have nothing....");
+                getAllBooksFromDb();
                 break;
             case "0":
                 System.out.println("Saindo do sistema");
@@ -80,6 +80,11 @@ public class PrincipalController {
                 " " +
                 "como resultado da busca por '" + nameOrTitle + "':" + "\n");
         books.books().forEach(System.out::println);
+    }
+
+    public void getAllBooksFromDb() {
+        System.out.println("Listando livros salvos:");
+        booksService.getAllBooksFromDb().forEach(System.out::println);
     }
 
 }

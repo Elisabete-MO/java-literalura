@@ -92,6 +92,6 @@ public class AuthorEntity {
                 ", Ano de Nascimento: " + (birthYear == 0 ? "Data não " +
                 "informada": birthYear)+
                 ", Ano de Morte: " + (deathYear == 0 ?
-                "Data não informada." : deathYear + "." + '\n') ;
+                "Data não informada." : deathYear + ".") ;
     }
 }

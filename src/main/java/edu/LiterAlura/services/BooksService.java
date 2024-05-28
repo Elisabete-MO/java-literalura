@@ -2,22 +2,23 @@ package edu.LiterAlura.services;
 
 import edu.LiterAlura.integration.BooksApiIntegration;
 import edu.LiterAlura.models.entities.BookEntity;
-import edu.LiterAlura.models.records.Book;
 import edu.LiterAlura.models.records.Books;
 import edu.LiterAlura.repositories.IBookRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class BooksService {
-    private final IBookRepository repository;
+    private final IBookRepository booksRepository;
     private final BooksApiIntegration booksApiIntegration;
     private final ConvertDataService convertService;
     String ADDRESS = "https://gutendex.com/books/?";
 
-    public BooksService(IBookRepository repository,
+    public BooksService(IBookRepository booksRepository,
                         BooksApiIntegration booksApiIntegration,
                         ConvertDataService convertService) {
-        this.repository = repository;
+        this.booksRepository = booksRepository;
         this.booksApiIntegration = booksApiIntegration;
         this.convertService = convertService;
     }
@@ -49,18 +50,15 @@ public class BooksService {
         }
     }
 
-    public Books getAllMediaData(String language) {
+    public List<BookEntity> getAllBooksFromDb() {
         try {
-            String endpoint =
-                    ADDRESS + "languages=" + language;
-            String json = booksApiIntegration.getApiBooksData(endpoint);
-            return convertService.fromJson(json, Books.class);
+            return booksRepository.findAll();
         } catch (Exception e) {
             throw new RuntimeException("Media not found" + e.getMessage());
         }
     }
 
     public void saveBook(BookEntity bookEntity) {
-         repository.save(bookEntity);
+         booksRepository.save(bookEntity);
     }
 }
