@@ -2,9 +2,11 @@ package edu.LiterAlura.controllers;
 
 import edu.LiterAlura.services.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Component
 public class PrincipalController {
     private final BooksService booksService;
     Scanner scanner = new Scanner(System.in);
@@ -15,7 +17,6 @@ public class PrincipalController {
     }
 
     public void showMenu() {
-
         System.out.println("Bem vindo ao sistema de cursos da Alura");
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Cursos");

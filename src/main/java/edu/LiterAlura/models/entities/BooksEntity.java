@@ -25,8 +25,7 @@ public class BooksEntity {
     @Column(nullable = false)
     private String title;
 
-    @ManyToMany(mappedBy = "author", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "book_author",
             joinColumns = @JoinColumn(name = "book_id"),

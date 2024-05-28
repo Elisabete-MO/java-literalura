@@ -2,13 +2,14 @@ package edu.LiterAlura.services;
 
 import edu.LiterAlura.integration.BooksApiIntegration;
 import edu.LiterAlura.models.records.Books;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BooksService {
     private final BooksApiIntegration booksApiIntegration =
             new BooksApiIntegration();
     private final ConvertDataService convertService = new ConvertDataService();
     String ADDRESS = "https://gutendex.com/books?search=";
-
 
     public Books getAllMediaDataByName(String bookName) {
         try {

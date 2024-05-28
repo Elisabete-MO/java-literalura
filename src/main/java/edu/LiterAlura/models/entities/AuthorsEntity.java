@@ -1,15 +1,7 @@
 package edu.LiterAlura.models.entities;
 
 import edu.LiterAlura.models.records.Authors;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +20,8 @@ public class AuthorsEntity {
     @Column(name = "death_year")
     private int deathYear;
 
-    @ManyToMany(mappedBy = "authors", cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy ="authors", cascade = CascadeType.ALL, fetch =
+            FetchType.EAGER)
     private List<BooksEntity> books = new ArrayList<>();
 
     /**
