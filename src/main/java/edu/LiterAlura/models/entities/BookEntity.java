@@ -105,7 +105,7 @@ public class BookEntity {
     public String toString() {
         return "-----LIVRO-----" + '\n' +
                 "Titulo: " + title + '\n' +
-                "Autor: " + authors + '\n' +
+                authors + '\n' +
                 "Idioma: " + languages + '\n' +
                 "Número de downloads: " + downloads + '\n' +
                 "-----------------";

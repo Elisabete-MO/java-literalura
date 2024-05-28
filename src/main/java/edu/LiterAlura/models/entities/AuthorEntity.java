@@ -37,10 +37,10 @@ public class AuthorEntity {
     public AuthorEntity() {
     }
 
-    public AuthorEntity(Author authors) {
-        this.name = authors.name();
-        this.birthYear = authors.birthYear();
-        this.deathYear = authors.deathYear();
+    public AuthorEntity(Author author) {
+        this.name = author.name();
+        this.birthYear = author.birthYear();
+        this.deathYear = author.deathYear();
     }
 
     /**
@@ -84,5 +84,14 @@ public class AuthorEntity {
 
     public void setBooks(List<BookEntity> books) {
         this.books = books;
+    }
+
+    @Override
+    public String toString() {
+        return "Autor: " + name +
+                ", Ano de Nascimento: " + (birthYear == 0 ? "Data não " +
+                "informada": birthYear)+
+                ", Ano de Morte: " + (deathYear == 0 ?
+                "Data não informada." : deathYear + "." + '\n') ;
     }
 }

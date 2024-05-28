@@ -1,6 +1,6 @@
 package edu.LiterAlura.controllers;
 
-import edu.LiterAlura.models.records.Book;
+import edu.LiterAlura.models.entities.BookEntity;
 import edu.LiterAlura.models.records.Books;
 import edu.LiterAlura.services.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,6 @@ public class PrincipalController {
         System.out.println("6 - Listar livros em determinado idioma");
         System.out.println("0 - Sair");
 
-
         String opt = scanner.nextLine();
 
         switch (opt) {
@@ -58,14 +57,20 @@ public class PrincipalController {
         System.out.println("Digite o nome do autor ou título do livro:");
         String nameOrTitle = scanner.nextLine();
         Books books = booksService.getAllMediaDataByName(nameOrTitle);
-        showBooks(books, nameOrTitle);
-        getDataByBookId();
+        if(books.count() == 0) {
+            System.out.println("Nenhum livro encontrado");
+            showMenu();
+        } else {
+            showBooks(books, nameOrTitle);
+            getDataByBookId();
+        }
     }
 
     public void getDataByBookId() {
         System.out.println("Digite o ID do livro:");
         String id = scanner.nextLine();
-        Books books = booksService.getMediaDataById(id);
+        BookEntity book = booksService.getMediaDataById(id);
+        System.out.println(book);
         // save
         showMenu();
     }
@@ -76,6 +81,5 @@ public class PrincipalController {
                 "como resultado da busca por '" + nameOrTitle + "':" + "\n");
         books.books().forEach(System.out::println);
     }
-
 
 }
