@@ -1,14 +1,21 @@
 package edu.LiterAlura.models.entities;
 
-import edu.LiterAlura.models.records.Authors;
-import jakarta.persistence.*;
-
+import edu.LiterAlura.models.records.Author;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "authors")
-public class AuthorsEntity {
+public class AuthorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,15 +29,15 @@ public class AuthorsEntity {
 
     @ManyToMany(mappedBy ="authors", cascade = CascadeType.ALL, fetch =
             FetchType.EAGER)
-    private List<BooksEntity> books = new ArrayList<>();
+    private List<BookEntity> books = new ArrayList<>();
 
     /**
      * CONSTRUCTORS
      */
-    public AuthorsEntity() {
+    public AuthorEntity() {
     }
 
-    public AuthorsEntity(Authors authors) {
+    public AuthorEntity(Author authors) {
         this.name = authors.name();
         this.birthYear = authors.birthYear();
         this.deathYear = authors.deathYear();
@@ -71,11 +78,11 @@ public class AuthorsEntity {
         this.id = id;
     }
 
-    public List<BooksEntity> getBooks() {
+    public List<BookEntity> getBooks() {
         return books;
     }
 
-    public void setBooks(List<BooksEntity> books) {
+    public void setBooks(List<BookEntity> books) {
         this.books = books;
     }
 }

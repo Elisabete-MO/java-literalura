@@ -1,7 +1,7 @@
 package edu.LiterAlura.models.entities;
 
-import edu.LiterAlura.models.records.Authors;
-import edu.LiterAlura.models.records.Books;
+import edu.LiterAlura.models.records.Author;
+import edu.LiterAlura.models.records.Book;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "books")
-public class BooksEntity {
+public class BookEntity {
     @Id
     private Long id;
 
@@ -31,7 +31,7 @@ public class BooksEntity {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
-    private List<AuthorsEntity> authors = new ArrayList<>();
+    private List<AuthorEntity> authors = new ArrayList<>();
 
     @ElementCollection
     private List<String> languages = new ArrayList<>();
@@ -40,19 +40,19 @@ public class BooksEntity {
     /**
      * CONSTRUCTORS
      */
-    public BooksEntity() {
+    public BookEntity() {
     }
 
-    public BooksEntity(final Books books) {
-        this.id = (long) books.id();
-        this.title = books.title();
+    public BookEntity(final Book book) {
+        this.id = (long) book.id();
+        this.title = book.title();
 
-        for (Authors author : books.authors()) {
-            this.authors.add(new AuthorsEntity(author));
+        for (Author author : book.authors()) {
+            this.authors.add(new AuthorEntity(author));
         }
 
-        this.languages = books.languages();
-        this.downloads = books.downloads();
+        this.languages = book.languages();
+        this.downloads = book.downloads();
     }
 
     /**
@@ -74,11 +74,11 @@ public class BooksEntity {
         this.title = title;
     }
 
-    public List<AuthorsEntity> getAuthors() {
+    public List<AuthorEntity> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(List<AuthorsEntity> authors) {
+    public void setAuthors(List<AuthorEntity> authors) {
         this.authors = authors;
     }
 
