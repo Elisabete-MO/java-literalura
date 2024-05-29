@@ -106,4 +106,7 @@ Para abrir e executar o projeto, siga estes passos:
 -   [Tecnologias utilizadas](https://www.alura.com.br/artigos/escrever-bom-readme#tecnologias-utilizadas)
 -   [Pessoas Contribuidoras](https://www.alura.com.br/artigos/escrever-bom-readme#pessoas-contribuidoras)
 -   [Pessoas Desenvolvedoras do Projeto](https://www.alura.com.br/artigos/escrever-bom-readme#pessoas-desenvolvedoras)
--   [Licença](https://www.alura.com.br/artigos/escrever-bom-readme#licen%C3%A7a) -->
+-   [Licença](https://www.alura.com.br/artigos/escrever-bom-readme#licen%C3%A7a) 
+Gerando estatísticas: Começamos as sugestões de funcionalidades opcionais lembrando da classe DoubleSummaryStatistics, usada para obter dados estatísticos de um objeto Java. É possível obter esses dados seja de consultas na API ou no banco de dados.
+Top 10 livros mais baixados: Assim como foi apresentado no curso Java: trabalhando com lambdas, streams e Spring Framework, é possível apresentar os dados dos 10 livros mais baixados, sendo uma consulta diretamente feita na API ou no banco de dados.
+-->
