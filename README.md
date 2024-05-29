@@ -47,7 +47,7 @@ O objetivo do LiterAlura é proporcionar uma experiência completa de interaçã
 * Interatividade através de uma interface de texto, com no mínimo 5 opções de 
   interação.
 
-<img align="center" src="./imgs/Captura de tela de 2024-05-29 02-33-41.png">
+<p align="center"><img src="./imgs/Captura de tela de 2024-05-29 02-33-41.png"></p>
 
 * Exibição clara e organizada de resultados, incluindo informações sobre 
   livros e autores.
