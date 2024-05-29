@@ -42,6 +42,9 @@ public class PrincipalController {
             case "3":
                 getAllBooksFromDb();
                 break;
+            case "4":
+                getAllAuthorsFromDb();
+                break;
             case "0":
                 System.out.println("Saindo do sistema");
                 System.exit(0);
@@ -83,8 +86,13 @@ public class PrincipalController {
     }
 
     public void getAllBooksFromDb() {
-        System.out.println("Listando livros salvos:");
         booksService.getAllBooksFromDb().forEach(System.out::println);
+        showMenu();
+    }
+
+    public void getAllAuthorsFromDb() {
+        booksService.getAllAuthorsFromDb().forEach(System.out::println);
+        showMenu();
     }
 
 }
