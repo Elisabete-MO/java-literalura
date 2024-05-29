@@ -1,5 +1,5 @@
 
-# 📜 Boas-vindas ao repositório do projeto Conversor de Moedas! :books:
+# 📜 Boas-vindas ao repositório do projeto de consulta de livros! :books:
 <p align="center">
      <a alt="Java" href="https://java.com" target="_blank">
         <img src="https://img.shields.io/badge/Java-v22.0.1-ED8B00.svg" />
@@ -28,24 +28,42 @@ Conquista">
   </tr>
 </table>
 -->
-### :credit_card: Descrição do Projeto
+### 📖 Descrição do Projeto
 
-Esta aplicação oferece uma solução eficiente para a conversão de dados monetários, utilizando dados em tempo real fornecidos pela [ExchangeRate-API](https://www.exchangerate-api.com/).
+Esta é uma aplicação Java que oferece ao usuário a oportunidade de construir e explorar seu próprio catálogo de livros de maneira interativa. Os dados de livros e autores de seu interesse poderão ser solicitados a uma API de livros, a [Gutendex](https://gutendex.com/), armazenados em um banco de dados e, por fim, a filtrados e apresentados.
 
-Os usuários podem facilmente realizar as seguintes conversões de moeda:
+### Objetivo:
 
--   Dólar (USD) para Peso Argentino (ARS);
--   Peso Argentino (ARS) para Dólar (USD);
--   Dólar (USD) para Real Brasileiro (BRL);
--   Real Brasileiro (BRL) para Dólar (USD);
--   Dólar (USD) para Bolívar Boliviano (BOB);
--   Bolívar Boliviano (BOB) para Dólar (USD).
+O objetivo do LiterAlura é proporcionar uma experiência completa de interação textual com os usuários, oferecendo no mínimo 5 opções de interação. A aplicação permite buscar livros por meio de uma API específica, analisar as respostas em formato JSON, armazenar informações relevantes em um banco de dados e, finalmente, apresentar os resultados de forma organizada e acessível aos usuários.
 
-Com uma interface simples e intuitiva, os usuários podem converter moedas com facilidade e precisão, atendendo às suas necessidades financeiras com rapidez e confiabilidade.
 
-### 🛠️ Funcionalidades
-<img src="./images/Captura de tela de 2024-04-30 18-42-10.png">
+### 🛠️ Recursos e Funcionalidades
 
+
+* Consumo de uma API de livros para obtenção de dados atualizados.
+* Análise inteligente das respostas JSON para extração de informações 
+  relevantes.
+* Armazenamento eficiente de dados em um banco de dados para consultas futuras.
+* Interatividade através de uma interface de texto, com no mínimo 5 opções de 
+  interação.
+
+<img align="center" src="./imgs/Captura de tela de 2024-05-29 02-33-41.png">
+
+* Exibição clara e organizada de resultados, incluindo informações sobre 
+  livros e autores.
+
+<table align="center">
+  <tr>
+    <td>
+      <img src="./imgs/Captura de tela de 2024-05-29 02-35-46.png" 
+width="350px" alt="Lista de Livros">
+    </td>
+    <td>
+      <img src="./imgs/Captura de tela de 2024-05-29 02-36-23.png" 
+width="350px" alt="Lista de Autores">
+    </td>
+  </tr>
+</table>
 
 ### 📁 Acesso ao projeto
 
@@ -53,7 +71,7 @@ Para acessar o projeto, siga estas instruções:
 
 1.  Clone este repositório para o seu ambiente local usando o seguinte comando no terminal:
 ```bash    
-    `git clone https://github.com/Elisabete-MO/java-currency-converter.git` 
+    `git clone https://github.com/Elisabete-MO/java-literalura.git` 
 ```
 2.  Abra o projeto na sua IDE de preferência.
 <br>
@@ -62,15 +80,19 @@ Para acessar o projeto, siga estas instruções:
 
 Para abrir e executar o projeto, siga estes passos:
 
-1.  Certifique-se de que você tenha as dependências do projeto instaladas, incluindo o Java Development Kit (JDK).
+1.  Certifique-se de que você tenha as dependências do projeto instaladas, 
+    incluindo o Java Development Kit (JDK), o Apache Maven e o PostgreSQL.
 2.  Navegue até o diretório do projeto em sua IDE.
 3.  Localize e abra o arquivo principal do projeto, geralmente chamado de `Main.java` ou similar.
-4.  Execute o arquivo `CurrencyConverterApplication.java`.
+4.  Execute o arquivo `LiterAluraApplication.java`.
 5.  Siga as instruções no console para interagir com o conversor de moedas.
     
 ### ✔️ Tecnologias Utilizadas
-* Java v. 21.0.3
+* Java v. 22.0.1
+* Spring Framework v. 3.3.0
 * Maven v. 4.0.0
+* Jackson v. 2.17.0
+* PostgreSQL v. 15.6
 * Intellij IDEA (Community Edition)
 * Programação Orientada a Objetos
 ---------------------------------------------------------
