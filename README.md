@@ -18,16 +18,11 @@
     </a>
 </p>
 
-<!--
-<table align="center" border="hidden">
-  <tr>
-    <td>
-      <img src="./images/Badge-Conversor.png" width="200px" alt="Badge de 
+<p align="center">
+    <img src="./imgs/badge literalura.png" width="200px" alt="Badge de 
 Conquista">
-    </td>
-  </tr>
-</table>
--->
+</p>
+
 ### 📖 Descrição do Projeto
 
 Esta é uma aplicação Java que oferece ao usuário a oportunidade de construir e explorar seu próprio catálogo de livros de maneira interativa. Os dados de livros e autores de seu interesse poderão ser solicitados a uma API de livros, a [Gutendex](https://gutendex.com/), armazenados em um banco de dados e, por fim, a filtrados e apresentados.
