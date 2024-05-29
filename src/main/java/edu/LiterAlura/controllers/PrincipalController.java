@@ -1,12 +1,15 @@
 package edu.LiterAlura.controllers;
 
+import edu.LiterAlura.models.entities.AuthorEntity;
 import edu.LiterAlura.models.entities.BookEntity;
 import edu.LiterAlura.models.records.Books;
 import edu.LiterAlura.services.BooksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Component
 public class PrincipalController {
@@ -45,6 +48,14 @@ public class PrincipalController {
             case "4":
                 getAllAuthorsFromDb();
                 break;
+            case "5":
+                String year = getYearInfo();
+                getAllAuthorsBetweenYears(year);
+                break;
+            case "6":
+                String language = getLanguageInfo();
+                getBooksByLanguage(language);
+                break;
             case "0":
                 System.out.println("Saindo do sistema");
                 System.exit(0);
@@ -74,7 +85,6 @@ public class PrincipalController {
         String id = scanner.nextLine();
         BookEntity book = booksService.getMediaDataById(id);
         System.out.println(book);
-        // save
         showMenu();
     }
 
@@ -86,13 +96,68 @@ public class PrincipalController {
     }
 
     public void getAllBooksFromDb() {
+        System.out.println("********************************");
         booksService.getAllBooksFromDb().forEach(System.out::println);
         showMenu();
     }
 
     public void getAllAuthorsFromDb() {
-        booksService.getAllAuthorsFromDb().forEach(System.out::println);
+        System.out.println("** Autores salvos no banco de dados ** \n");
+        Map<String, AuthorEntity> uniqueAuthorsMap =
+                booksService.getAllAuthorsFromDb().stream()
+                .collect(Collectors.toMap(
+                        AuthorEntity::getName,
+                        Function.identity(),
+                        (existing, replacement) -> existing
+                ));
+        Collection<AuthorEntity> uniqueAuthors = uniqueAuthorsMap.values();
+        uniqueAuthors.forEach(System.out::println);
         showMenu();
     }
 
+    private String getYearInfo() {
+        System.out.println("Digite o ano para pesquisa:");
+        return scanner.nextLine();
+    }
+
+    private void getAllAuthorsBetweenYears(String yearString) {
+        System.out.println("** Autores presentes em banco de dados que " +
+                "estavam vivos em " + yearString + " ** \n");
+        int year = Integer.parseInt(yearString);
+        List<AuthorEntity> authors = booksService.getAllAuthorsFromDb();
+        Map<String, AuthorEntity> uniqueAuthorsMap = authors.stream()
+                .filter(author -> (author.getBirthYear() <= year &&
+                        author.getBirthYear() != 0) &&
+                        (author.getDeathYear() >= year &&
+                                author.getDeathYear() != 0))
+                .collect(Collectors.toMap(
+                    AuthorEntity::getName,
+                    Function.identity(),
+                    (existing, replacement) -> existing
+                ));
+        Collection<AuthorEntity> uniqueAuthors = uniqueAuthorsMap.values();
+        uniqueAuthors.forEach(System.out::println);
+        showMenu();
+    }
+
+    private String getLanguageInfo() {
+        System.out.println("** Digite o idioma para pesquisa: (apenas 2 " +
+                "caracteres) **");
+        return scanner.nextLine();
+    }
+
+    private void getBooksByLanguage(String language) {
+        List<BookEntity> books = booksService.getAllBooksFromDb();
+        Set<BookEntity> uniqueBooks = books.stream()
+                .filter(book -> book.getLanguages().contains(language))
+                .collect(Collectors.toSet());
+        if(uniqueBooks.isEmpty()) {
+            System.out.println("Nenhum livro encontrado em " + language);
+
+        } else {
+            System.out.println("** Livros encontrados em " + language + " **");
+            uniqueBooks.forEach(System.out::println);
+        }
+        showMenu();
+    }
 }

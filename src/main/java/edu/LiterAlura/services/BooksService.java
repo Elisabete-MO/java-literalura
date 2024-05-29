@@ -9,6 +9,8 @@ import edu.LiterAlura.repositories.IBookRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 @Component
@@ -77,12 +79,6 @@ public class BooksService {
 
     public Optional<BookEntity> getBookById(String id) {
         return booksRepository.findById(Long.parseLong(id));
-    }
-
-    public Optional<AuthorEntity> getAuthorByName(String name) {
-        Optional<AuthorEntity> authorEntity = authorsRepository.findFirstByName(name);
-        System.out.println(authorEntity);
-        return authorEntity;
     }
 
     public void saveBook(BookEntity bookEntity) {
